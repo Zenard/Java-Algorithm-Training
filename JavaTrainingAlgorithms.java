@@ -16,6 +16,7 @@ class MainClass{
     }   
     public static int MissingNumber(int start,int end)
     {
+        //Finding Missing number in a array
         Random rand = new Random();
         List<Integer> intList = new ArrayList<Integer>();
         int randomInteger = rand.nextInt(101);
@@ -44,7 +45,7 @@ class MainClass{
 
     public static boolean isPalindrome(String str)
     {
-
+        //Checks if an string is a palindrome
         for(int i = 0; i < (str.length()/2) + 1;i++)
         {
             if(Character.toLowerCase(str.charAt(i)) != Character.toLowerCase(str.charAt(str.length() - 1 -i)))
@@ -64,6 +65,7 @@ class MainClass{
     //#region 
     public static List<String> Permutation(String permutString)
     {
+        //Returns every permutation of a string
         Random rand = new Random();
         List<Character> PermutatedList = new ArrayList<Character>();
         List<Character> storagePermutatedList = new ArrayList<Character>();
