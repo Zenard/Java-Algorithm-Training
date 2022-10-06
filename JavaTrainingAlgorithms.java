@@ -5,15 +5,120 @@ import java.util.*;
 import java.util.stream.*;
 
 import javax.naming.spi.ResolveResult;
+import javax.swing.plaf.SliderUI;
 import javax.swing.text.AbstractDocument.Content;
+import javax.swing.tree.ExpandVetoException;
 import javax.xml.stream.events.EndDocument;
 class MainClass{
 
     public static void main(String[] args) 
     {
-        System.out.println(MissingNumber(5, 100));
-        
+        int[] param = {1,2,3,4,51,2,3,4,5,1,2,6,8,5,5,67,21,4,5,1,8,9,5,6,7,3,4,67,51};
+        DeleteDuplicatedNumbers(param);
+
+
+       
     }   
+    public static void DeleteDuplicatedNumbers(int[] dupArray)
+    {
+        //Tomorrow
+        
+
+        
+        
+
+    }
+    public static List<Integer> FindDuplicatedNumbers(int[] dupArray )
+    {
+        //Prints the numbers that repeats more than 1                  
+        List<Integer> result = new ArrayList<Integer>();
+        for(int i = 0; i < dupArray.length;i++)
+        {
+            for(int j = 0; j< dupArray.length;j++)
+            {
+                if(dupArray[i] == dupArray[j] && i != j && !result.contains(dupArray[i]))
+                {
+                    result.add(dupArray[i]);
+                    break;
+                
+                }
+
+
+            }
+            
+            
+
+        }
+        System.out.println(result.size());
+        return result;
+
+    }
+    public static Map<Integer,Integer> GetPair(int givenSum)
+    {
+        Map<Integer,Integer> result = new HashMap<Integer,Integer>();
+        
+        
+        //Finds all pairs of integer arrays whose sum is equal to a given number
+        int[] exampleArray = {1,2,3,4,5,6,7,8,9,10};
+        
+        
+        
+        
+        for(int i = 0; i < exampleArray.length;i++)
+        {
+
+            for(int j = 0; j < exampleArray.length; j++)
+            {
+
+                if(exampleArray[i] + exampleArray[j] == givenSum)
+                {
+                    
+                    result.put(exampleArray[i], exampleArray[j]);
+                    
+                    
+
+                }
+               
+                
+
+            }
+
+
+        }
+
+
+
+        return result;
+    }
+    public static void MaxAndMinValue(int arrayLength)
+    {
+        //Prints max and min value in given array lenght which is created randomly
+        Random rand = new Random();
+        int [] randomArray = new int[arrayLength];
+        for(int i = 0; i <arrayLength;i++)
+        {
+            randomArray[i] = rand.nextInt(arrayLength);
+            System.out.println(randomArray[i]);
+        }
+        
+        int max = randomArray[0];
+        int min = randomArray[0];
+        for(int i = 0; i < randomArray.length;i++)
+        {
+            if(randomArray[i] > max)
+            {
+                max = randomArray[i];
+            }
+            if(randomArray[i] < min)
+            {
+                min = randomArray[i];
+            }
+        }
+        System.out.println("max" + max);
+        System.out.println("min" + min);
+
+        
+    }
     public static int MissingNumber(int start,int end)
     {
         //Finding Missing number in a array
