@@ -3,7 +3,7 @@ import java.nio.charset.CharacterCodingException;
 import java.text.BreakIterator;
 import java.util.*;
 import java.util.stream.*;
-import java.utill.Arrays;
+
 
 import javax.lang.model.util.ElementScanner14;
 import javax.naming.spi.ResolveResult;
@@ -20,17 +20,47 @@ class MainClass{
         int[] param = {1,2,3,4,51,2,3,4,5,1,2,6,8,5,5,67,21,4,5,1,8,9,5,6,7,3,4,67,51,91};
         int[][] randomMatrix = CreateRandomMatrix(3,3);
         int[][] randomSecMatrix = CreateRandomMatrix(3, 3);
-
-        PrintMatrix(randomMatrix);
-        System.out.println("------");
-        PrintMatrix(randomSecMatrix);
-        System.out.println("------");
-
-        PrintMatrix(MultiplyTwoMatrices(randomMatrix, randomSecMatrix));
-        System.out.println("--------");
+        
+        int[] outPut = BubbleAlgorithm(param);
+        for (int i : outPut) {
+            System.out.print(i+"-");
+        }
+        
 
         
-    }   
+    } 
+    public static int[] BubbleAlgorithm(int[] sortArr)
+    {
+        System.out.println("!!");
+        int proccessAmount = 0;
+
+        int i = 0;
+        int replace = 0;
+        do
+        {
+            if(sortArr[i] > sortArr[i + 1])
+            {
+                sortArr[i] = sortArr[i + 1] + sortArr[i];
+                sortArr[i + 1] =sortArr[i] - sortArr[i + 1];
+                sortArr[i] = sortArr[i] - sortArr[i + 1];
+                
+                proccessAmount++;
+            }
+            i++;
+            if(i == sortArr.length - 2)
+            {
+                System.out.println(proccessAmount);
+                i = 0;
+                if(proccessAmount == 0)
+                {
+                    return sortArr;
+                }
+                proccessAmount = 0;
+            }
+        }while(true);
+        
+
+    }
    
     public static void PrintMatrix(int[][] InMatrix)
     {
@@ -156,13 +186,6 @@ class MainClass{
             }
         }
         return result;
-    }
-    public static int binarySearch(int[] binArray, int search)
-    {
-        //LaterWillBeDone
-        return null;
-        
-        
     }
     public static int[] ReverseAnArray(int[] arrayIn)
     {
